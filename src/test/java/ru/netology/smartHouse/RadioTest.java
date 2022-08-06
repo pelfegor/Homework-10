@@ -5,6 +5,39 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+
+    // Тестирование установки количества станций
+    @Test
+    public void shouldSetDefaultRadioStationNumber(){
+        Radio radio = new Radio();
+
+        int expected = 10;
+        int actual = radio.radioStationNumber;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetRadioStationNumber(){
+        Radio radio = new Radio(5);
+
+        int expected = 5;
+        int actual = radio.radioStationNumber;
+
+        Assertions.assertEquals(5, radio.radioStationNumber);
+    }
+
+    @Test
+    public void shouldSetMoreThanDefaultRadioStationNumber() {
+        Radio radio = new Radio(15);
+
+        int expected = 14;
+        int actual = radio.maxRadioStationNumber;
+
+        Assertions.assertEquals(expected, actual);
+        //Assertions.assertEquals(0, radio.minRadioStationNumber);
+    }
+
     // Тестирование граничных значений, при установке станции вручную
     @Test
     public void shouldSetRadioStationNumberZero() {
@@ -137,11 +170,11 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeFromEnd(){
         Radio radio = new Radio();
-        radio.currentVolume = 10;
+        radio.currentVolume = 100;
 
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.currentVolume;
 
         Assertions.assertEquals(expected, actual);
