@@ -1,5 +1,13 @@
 package ru.netology.smartHouse;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
     public int currentRadioStationNumber;
     public int radioStationNumber = 10;
@@ -12,10 +20,6 @@ public class Radio {
     public Radio(int number) {
         this.radioStationNumber = number;
         this.maxRadioStationNumber = number - 1;
-    }
-
-    public Radio() {
-
     }
 
     public void setCurrentRadioStation(int newCurrentRadioStationNumber) {
